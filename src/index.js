@@ -14,6 +14,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 function* rootSaga() {
   yield takeEvery('GET_PLANT', getPlant)
+  yield takeEvery('POST_PLANT', postPlantSaga)
   yield takeEvery('DELETE_PLANT', deletePlant)
 }
 
