@@ -38,9 +38,17 @@ class NewPlantForm extends Component {
         return (
             <div>
                 <h3>This is the form</h3>
+
                 <pre>{JSON.stringify(this.state)}</pre>
                 <form onSubmit={this.addNewPlant}>
-                    <input type='text' value={this.state.newPlant.name} onChange={this.handleNameChange} />
+                    <input type='text' placeholder="name" value={this.state.newPlant.name} onChange={this.handleNameChange} />
+                    <input type='text' placeholder="kingdom" value={this.state.newPlant.kingdom} onChange={this.handleNameChange} />
+                    <input type='text' placeholder="clade" value={this.state.newPlant.clade} onChange={this.handleNameChange} />
+                    <input type='text' placeholder="order" value={this.state.newPlant.order} onChange={this.handleNameChange} />
+                    <input type='text' placeholder="family" value={this.state.newPlant.family} onChange={this.handleNameChange} />
+                    <input type='text' placeholder="subfamily" value={this.state.newPlant.subfamily} onChange={this.handleNameChange} />
+                    <input type='text' placeholder="genus" value={this.state.newPlant.genus} onChange={this.handleNameChange} />
+
                     <input type='submit' value='Add New Plant' />
                 </form>
             </div>
