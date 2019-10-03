@@ -36,6 +36,17 @@ function* getPlant() {
     console.log('error in GET', error);
   }
 }
+  
+function* postPlantSaga(action){
+  try{
+      yield axios.post('/api/plant', action.payload);
+      yield getPlant();
+  }catch(error){
+    console.log('error in post pant', error);
+    
+  }
+
+}
 
 const plantList = (state = [], action) => {
   console.log(action);

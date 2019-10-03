@@ -8,28 +8,38 @@ const mapStateToProps = reduxState => ({
 class NewPlantForm extends Component {
     state = {
         newPlant: {
-            id: 4,
-            name: ''
+                name: '',
+                kingdom:'',
+                clade:'',
+                order:'',
+                family:'',
+                subfamily:'',
+                genus:'',
         }
     }
 
-    handleNameChange = event => {
+    handleNameChange =( event, input ) => {
         console.log('event happended')
         this.setState({
             newPlant: {
                 ...this.state.newPlant,
-                name: event.target.value,
+                [input]: event.target.value,
             }
         });
     }
 
     addNewPlant = event => {
         event.preventDefault();
-        this.props.dispatch({ type: 'ADD_PLANT', payload: this.state.newPlant })
+        this.props.dispatch({ type: 'POST_PLANT', payload: this.state.newPlant })
         this.setState({
             newPlant: {
-                id: this.state.newPlant.id + 1,
                 name: '',
+                kingdom:'',
+                clade:'',
+                order:'',
+                family:'',
+                subfamily:'',
+                genus:'',
             }
         });
     }
