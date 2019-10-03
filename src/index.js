@@ -15,9 +15,18 @@ const sagaMiddleware = createSagaMiddleware();
 function* rootSaga() {
   yield takeEvery('GET_PLANT', getPlant)
   yield takeEvery('POST_PLANT', postPlantSaga)
-
+  yield takeEvery('DELETE_PLANT', deletePlant)
 }
 
+function* deletePlant(action) {
+  try{
+    console.log('in deletePlant');
+    yield axios.delete('/api/plant/' + action.payload)
+    yield getPlant()
+  } catch (error){
+  console.log("Error with deleting plant", error)
+  }
+}
 
 function* getPlant() {
   try {
@@ -28,6 +37,7 @@ function* getPlant() {
     console.log('error in GET', error);
   }
 }
+  
 function* postPlantSaga(action){
   try{
       yield axios.post('/api/plant', action.payload);
