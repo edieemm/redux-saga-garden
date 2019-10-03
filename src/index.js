@@ -51,7 +51,6 @@ function* postPlantSaga(action){
 
 const plantList = (state = [], action) => {
   console.log(action);
-  
   switch (action.type) {
     case 'SET_PLANT':
       state = action.payload;

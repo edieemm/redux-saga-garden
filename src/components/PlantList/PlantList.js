@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 class PlantList extends Component {
     componentDidMount() {
-        // use component did mount to dispatch an action to request the plantList from the API
         this.getPlant();
     }
 
@@ -22,7 +21,6 @@ class PlantList extends Component {
                 <h3>This is the plant list</h3>
                 {this.props.reduxState.plantList.map((plant) => 
                     <li key={plant.id}>{plant.name}<button onClick={() => this.deletePlant(plant.id)}>delete</button></li>
-                    
                 )}
             </div>
         );
