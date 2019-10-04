@@ -16,9 +16,7 @@ class PlantList extends Component {
         this.props.dispatch({ type: 'DELETE_PLANT', payload: id })
     }
 
-    seePlant = (id) => {
-        this.props.history.push('/plant/' + id)
-    }
+    
 
     render() {
         return (
@@ -26,7 +24,7 @@ class PlantList extends Component {
                 <h3>This is the plant list</h3>
                 {this.props.reduxState.plantList.map((plant) => 
                     <li key={plant.id}>{plant.name}
-                    <button onClick={() => this.seePlant(plant.id)}>info</button>
+                    <button onClick={() => this.props.seePlant(plant.id)}>info</button>
                     <button onClick={() => this.deletePlant(plant.id)}>delete</button></li>
                 )}
             </Router>
